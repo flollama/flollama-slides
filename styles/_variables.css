@@ -1,0 +1,62 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ===== LIGHT ===== */
+  --color-light-text: #1c1c1c;
+  --color-light-text-muted: #1c1c1c99;
+  --color-light-text-subtle: #00000066;
+
+  --color-light-bg: #f5f5f5;
+  --color-light-bg-elevated: #e4eef1;
+  --color-light-bg-hover: #eaf0f5;
+
+  --color-light-accent: #5354a2;
+  --color-light-border: #1c1c1c1a;
+  --color-light-shadow: rgba(0, 0, 0, 0.2);
+
+  /* ===== DARK ===== */
+  --color-dark-text: #e6e6e6;
+  --color-dark-text-muted: #ffffff99;
+  --color-dark-text-subtle: #ffffff66;
+
+  --color-dark-bg: #1c1c1c;
+  --color-dark-bg-elevated: #292929;
+  --color-dark-bg-hover: #2e2e2e;
+
+  --color-dark-accent: #c6c7f8;
+  --color-dark-border: #ffffff1a;
+  --color-dark-shadow: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ===== THEME: LIGHT ===== */
+[data-theme="light"] {
+  --color-text: var(--color-light-text);
+  --color-text-muted: var(--color-light-text-muted);
+  --color-text-subtle: var(--color-light-text-subtle);
+
+  --color-bg: var(--color-light-bg);
+  --color-bg-elevated: var(--color-light-bg-elevated);
+  --color-bg-hover: var(--color-light-bg-hover);
+
+  --color-accent: var(--color-light-accent);
+  --color-border: var(--color-light-border);
+  --color-shadow: var(--color-light-shadow);
+}
+
+
+/* ===== THEME: DARK ===== */
+[data-theme="dark"] {
+  --color-text: var(--color-dark-text);
+  --color-text-muted: var(--color-dark-text-muted);
+  --color-text-subtle: var(--color-dark-text-subtle);
+
+  --color-bg: var(--color-dark-bg);
+  --color-bg-elevated: var(--color-dark-bg-elevated);
+  --color-bg-hover: var(--color-dark-bg-hover);
+
+  --color-accent: var(--color-dark-accent);
+  --color-border: var(--color-dark-border);
+  --color-shadow: var(--color-dark-shadow);
+}
