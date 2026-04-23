@@ -1,0 +1,44 @@
+{
+  "name": "flollama-slides",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "description": "AI-powered presentation engine that transforms raw ideas into structured, visually compelling slides using intelligent content generation and design automation.",
+  "main": "app/layout.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flollama/flollama-slides.git"
+  },
+  "keywords": [
+    "flollama",
+    "AI-Presentation",
+    "NextJS",
+    "Automation"
+  ],
+  "author": "flollama UnInc.",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/flollama/flollama-slides/issues"
+  },
+  "homepage": "https://github.com/flollama/flollama-slides#readme"
+}
