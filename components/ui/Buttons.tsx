@@ -29,46 +29,47 @@ export default function Button({
   className,
   ...props
 }: Props) {
-  // EXACT brick-by-brick styles per variant
-  const variantStyles = {
-    primary:
-      "border-none outline-none cursor-pointer flex flex-row justify-center items-center gap-2 w-auto h-auto px-6 py-2 bg-primary rounded-lg tracking-normal text-center text-secondary fill-current m-1",
+  const base =
+    "outline-none cursor-pointer flex flex-row justify-center items-center gap-2 w-auto h-auto px-6 py-2 rounded-lg tracking-normal text-center fill-current m-1";
 
-    secondary:
-      "border-none outline-none cursor-pointer flex flex-row justify-center items-center gap-2 w-auto h-auto px-6 py-2 bg-secondary rounded-lg text-center text-text fill-current m-1",
+  const variantStyles: Record<Variant, string> = {
+    // Primary Button (contrast surface)
+    primary: "bg-primary text-secondary",
 
-    danger:
-      "border-none outline-none cursor-pointer flex flex-row justify-center items-center gap-2 w-auto h-auto px-6 py-2 bg-dangerous rounded-lg tracking-normal text-center text-white fill-current m-1",
+    // Secondary Button (card surface)
+    secondary: "bg-secondary text-text",
 
-    outline:
-      "border border-stroke cursor-pointer flex flex-row justify-center items-center gap-2 w-auto h-auto px-6 py-2 bg-transparent rounded-lg text-center text-text fill-current m-1",
+    // Dangerous Button
+    danger: "bg-danger text-white",
 
-    "danger-outline":
-      "border border-dangerous cursor-pointer flex flex-row justify-center items-center gap-2 w-auto h-auto px-6 py-2 bg-transparent rounded-lg text-center text-dangerous-text fill-current m-1",
+    // Outline Button
+    outline: "border border-border transparent text-text",
 
+    // Dangerous Outline Button
+    "danger-outline": "border border-danger bg-transparent text-danger-text",
+
+    // Google Button
     google:
-      "flex flex-row justify-center items-center gap-2 w-auto h-auto px-6 py-2 bg-secondary border border-stroke rounded-lg cursor-pointer hover:border-accent active:translate-x-[1px] active:translate-y-[4px]",
+      "bg-secondary border border-border hover:border-accent active:translate-x-[1px] active:translate-y-[4px]",
 
-    link:
-      "border-none outline-none cursor-pointer flex flex-row justify-center items-center gap-2 w-auto h-auto px-6 py-2 bg-transparent tracking-normal text-center text-text fill-current",
+    // Link Button
+    link: "bg-transparent text-text",
   };
 
   const wideStyles = wide ? "h-[38px] px-12 py-3 rounded-xl" : "";
 
-  const baseStyles = clsx(variantStyles[variant], wideStyles, className);
+  const styles = clsx(base, variantStyles[variant], wideStyles, className);
 
-  // LINK MODE
   if (href) {
     return (
-      <Link href={href} className={baseStyles}>
+      <Link href={href} className={styles}>
         {children}
       </Link>
     );
   }
 
-  // BUTTON MODE
   return (
-    <button className={baseStyles} {...props}>
+    <button className={styles} {...props}>
       {children}
     </button>
   );

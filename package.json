@@ -2,6 +2,24 @@
   "name": "flollama-slides",
   "version": "0.1.0",
   "private": true,
+  "description": "AI-powered presentation engine that transforms raw ideas into structured, visually compelling slides using intelligent content generation and design automation.",
+  "main": "app/layout.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flollama/flollama-slides.git"
+  },
+  "keywords": [
+    "flollama",
+    "AI-Presentation",
+    "NextJS",
+    "Automation"
+  ],
+  "author": "flollama UnInc.",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/flollama/flollama-slides/issues"
+  },
+  "homepage": "https://github.com/flollama/flollama-slides#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -23,23 +41,5 @@
     "eslint-config-next": "16.2.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "description": "AI-powered presentation engine that transforms raw ideas into structured, visually compelling slides using intelligent content generation and design automation.",
-  "main": "app/layout.tsx",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/flollama/flollama-slides.git"
-  },
-  "keywords": [
-    "flollama",
-    "AI-Presentation",
-    "NextJS",
-    "Automation"
-  ],
-  "author": "flollama UnInc.",
-  "license": "SEE LICENSE IN LICENSE",
-  "bugs": {
-    "url": "https://github.com/flollama/flollama-slides/issues"
-  },
-  "homepage": "https://github.com/flollama/flollama-slides#readme"
+  }
 }

@@ -1,7 +1,7 @@
 import { Inter, Poppins, Ubuntu, Noto_Sans } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-import ThemeProvider from "@/utils/theme/ThemeProvider";
+import ThemeProvider from "@/utils/ThemeProvider";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const inter = Inter({
