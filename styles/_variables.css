@@ -20,6 +20,7 @@
 
   
   --light-danger: hsl(0, 74%, 42%);
+  --light-danger-text: hsl(0, 63%, 28%);
 
   --light-icon: hsl(0, 0%, 24%);
 
@@ -40,6 +41,7 @@
   --dark-blur: hsla(0, 0%, 0%, 0.1);
   
   --dark-danger: hsl(0, 63%, 31%);
+  --dark-danger-text: hsl(0, 63%, 64%);
 
   --dark-icon: hsl(0, 0%, 76%);
 
@@ -95,6 +97,7 @@
   --blur: var(--dark-blur);
 
   --danger: var(--dark-danger);
+  --danger-text: var(--dark-danger-text);
 
   --icon: var(--dark-icon);
 }

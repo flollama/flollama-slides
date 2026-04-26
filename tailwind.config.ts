@@ -26,6 +26,7 @@ const config: Config = {
         border: "var(--border)",
 
         danger: "var(--danger)",
+        "danger-text": "var(--danger-text)",
 
         icon: "var(--icon)",
 
@@ -60,6 +61,7 @@ const config: Config = {
         "light-blur": "var(--light-blur)",
 
         "light-danger": "var(--light-danger)",
+        "light-danger-text": "var(--light-danger-text)",
 
         "light-icon": "var(--light-icon)",
 
@@ -80,6 +82,7 @@ const config: Config = {
         "dark-blur": "var(--dark-blur)",
 
         "dark-danger": "var(--dark-danger)",
+        "dark-danger-text": "var(--dark-danger-text)",
 
         "dark-icon": "var(--dark-icon)",
       },

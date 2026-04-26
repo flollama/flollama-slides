@@ -17,13 +17,10 @@ export default function Home() {
           light and dark modes.
         </p>
 
-        <div className="flex flex-col sm:flex-col gap-4 mt-4">
+        <div className="flex flex-col sm:flex-row gap-4 mt-4">
           <Button variant="primary" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
           <Button variant="secondary">I'm Useless</Button>
           <Button variant="outline" href="https://github.com/flollama/flollama-slides.git">View Repo</Button>
-          <Button variant="danger" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
-          <Button variant="danger-outline" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
-          <Button variant="dynamic" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
         </div>
 
         <div className="mt-8 text-sm text-muted opacity-70">

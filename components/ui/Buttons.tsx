@@ -46,7 +46,7 @@ export default function Button({
     outline: "border border-border transparent text-text",
 
     // Dangerous Outline Button
-    "danger-outline": "border border-danger bg-transparent text-danger",
+    "danger-outline": "border border-danger bg-transparent text-danger-text",
 
     // dynamic Button
     dynamic:
