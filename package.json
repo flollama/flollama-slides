@@ -4,6 +4,7 @@
   "private": true,
   "description": "AI-powered presentation engine that transforms raw ideas into structured, visually compelling slides using intelligent content generation and design automation.",
   "main": "app/layout.tsx",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flollama/flollama-slides.git"

@@ -9,7 +9,7 @@ type Variant =
   | "secondary"
   | "danger"
   | "outline"
-  | "google"
+  | "dynamic"
   | "danger-outline"
   | "link";
 
@@ -34,10 +34,10 @@ export default function Button({
 
   const variantStyles: Record<Variant, string> = {
     // Primary Button (contrast surface)
-    primary: "bg-primary text-secondary",
+    primary: "bg-inverted text-elevated",
 
     // Secondary Button (card surface)
-    secondary: "bg-secondary text-text",
+    secondary: "bg-elevated text-text",
 
     // Dangerous Button
     danger: "bg-danger text-white",
@@ -46,11 +46,11 @@ export default function Button({
     outline: "border border-border transparent text-text",
 
     // Dangerous Outline Button
-    "danger-outline": "border border-danger bg-transparent text-danger-text",
+    "danger-outline": "border border-danger bg-transparent text-danger",
 
-    // Google Button
-    google:
-      "bg-secondary border border-border hover:border-accent active:translate-x-[1px] active:translate-y-[4px]",
+    // dynamic Button
+    dynamic:
+      "bg-elevated border border-border hover:border-accent active:translate-x-[1px] active:translate-y-[4px]",
 
     // Link Button
     link: "bg-transparent text-text",

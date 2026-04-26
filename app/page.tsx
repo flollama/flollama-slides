@@ -11,7 +11,7 @@ export default function Home() {
           Build Something Clean.
         </h1>
 
-        <p className="text-text-muted text-lg max-w-xl">
+        <p className="text-muted text-lg max-w-xl">
           This is a starter homepage for Flollama projects. It exists purely to
           test UI components, typography, spacing, and theme behavior across
           light and dark modes.
@@ -21,9 +21,12 @@ export default function Home() {
           <Button variant="primary" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
           <Button variant="secondary">I'm Useless</Button>
           <Button variant="outline" href="https://github.com/flollama/flollama-slides.git">View Repo</Button>
+          <Button variant="danger" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
+          <Button variant="danger-outline" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
+          <Button variant="dynamic" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
         </div>
 
-        <div className="mt-8 text-sm text-text-muted opacity-70">
+        <div className="mt-8 text-sm text-muted opacity-70">
           <p>Theme, colors, spacing, and interactions test layer</p>
         </div>
       </main>

@@ -12,23 +12,20 @@ const config: Config = {
 
         /* Semantic (current theme) */
         text: "var(--text)",
-        "text-muted": "var(--text-muted)",
-        "text-subtle": "var(--text-subtle)",
+        "muted": "var(--text-muted)",
+        "subtle": "var(--text-subtle)",
 
         bg: "var(--bg)",
-        "bg-elevated": "var(--bg-elevated)",
-        "bg-hover": "var(--bg-hover)",
-        "bg-popup": "var(--bg-popup)",
+        "inverted": "var(--bg-inverted)",
+        "elevated": "var(--bg-elevated)",
 
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
-        tertiary: "var(--tertiary)",
+        "hover": "var(--bg-hover)",
+        "popup": "var(--bg-popup)",
 
         accent: "var(--accent)",
         border: "var(--border)",
 
         danger: "var(--danger)",
-        "danger-text": "var(--danger-text)",
 
         icon: "var(--icon)",
 
@@ -52,17 +49,19 @@ const config: Config = {
         "light-text-subtle": "var(--light-text-subtle)",
 
         "light-bg": "var(--light-bg)",
+        "light-bg-inverted": "var(--light-bg-inverted)",
         "light-bg-elevated": "var(--light-bg-elevated)",
         "light-bg-hover": "var(--light-bg-hover)",
+        "light-bg-popup": "var(--light-bg-popup)",
 
         "light-accent": "var(--light-accent)",
         "light-border": "var(--light-border)",
         "light-shadow": "var(--light-shadow)",
+        "light-blur": "var(--light-blur)",
 
         "light-danger": "var(--light-danger)",
         "light-danger-text": "var(--light-danger-text)",
 
-        "light-popup": "var(--light-popup)",
         "light-icon": "var(--light-icon)",
 
         "light-slate-50": "var(--light-slate-50)",
@@ -82,17 +81,19 @@ const config: Config = {
         "dark-text-subtle": "var(--dark-text-subtle)",
 
         "dark-bg": "var(--dark-bg)",
+        "dark-bg-inverted": "var(--dark-bg-inverted)",
         "dark-bg-elevated": "var(--dark-bg-elevated)",
         "dark-bg-hover": "var(--dark-bg-hover)",
+        "dark-bg-popup": "var(--dark-bg-popup)",
 
         "dark-accent": "var(--dark-accent)",
         "dark-border": "var(--dark-border)",
         "dark-shadow": "var(--dark-shadow)",
+        "dark-blur": "var(--dark-blur)",
 
         "dark-danger": "var(--dark-danger)",
         "dark-danger-text": "var(--dark-danger-text)",
 
-        "dark-popup": "var(--dark-popup)",
         "dark-icon": "var(--dark-icon)",
 
         "dark-slate-50": "var(--dark-slate-50)",

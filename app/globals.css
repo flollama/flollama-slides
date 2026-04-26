@@ -21,8 +21,8 @@
 
   /* ================== BASE ================== */
   body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    background-color: var(--bg);
+    color: var(--text);
 
     font-family:
       var(--font-inter), var(--font-poppins), var(--font-ubuntu),
@@ -70,17 +70,17 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-text-muted);
+    background: var(--text-muted);
     border-radius: 6px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text);
+    background: var(--cor-text);
   }
 
   /* Selection */
   ::selection {
-    background: var(--color-accent);
-    color: var(--color-white);
+    background: var(--accent);
+    color: var(--white);
   }
 }
