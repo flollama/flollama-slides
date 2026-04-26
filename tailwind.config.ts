@@ -29,18 +29,18 @@ const config: Config = {
 
         icon: "var(--icon)",
 
-        /* Slate (current theme) */
-        slate: {
-          50: "var(--slate-50)",
-          100: "var(--slate-100)",
-          200: "var(--slate-200)",
-          300: "var(--slate-300)",
-          400: "var(--slate-400)",
-          500: "var(--slate-500)",
-          600: "var(--slate-600)",
-          700: "var(--slate-700)",
-          800: "var(--slate-800)",
-          900: "var(--slate-900)",
+        /* Shade*/
+        shade: {
+          50: "var(--shade-50)",
+          100: "var(--shade-100)",
+          200: "var(--shade-200)",
+          300: "var(--shade-300)",
+          400: "var(--shade-400)",
+          500: "var(--shade-500)",
+          600: "var(--shade-600)",
+          700: "var(--shade-700)",
+          800: "var(--shade-800)",
+          900: "var(--shade-900)",
         },
 
         /* ===== RAW LIGHT (direct access if needed) ===== */
@@ -60,20 +60,8 @@ const config: Config = {
         "light-blur": "var(--light-blur)",
 
         "light-danger": "var(--light-danger)",
-        "light-danger-text": "var(--light-danger-text)",
 
         "light-icon": "var(--light-icon)",
-
-        "light-slate-50": "var(--light-slate-50)",
-        "light-slate-100": "var(--light-slate-100)",
-        "light-slate-200": "var(--light-slate-200)",
-        "light-slate-300": "var(--light-slate-300)",
-        "light-slate-400": "var(--light-slate-400)",
-        "light-slate-500": "var(--light-slate-500)",
-        "light-slate-600": "var(--light-slate-600)",
-        "light-slate-700": "var(--light-slate-700)",
-        "light-slate-800": "var(--light-slate-800)",
-        "light-slate-900": "var(--light-slate-900)",
 
         /* ===== RAW DARK ===== */
         "dark-text": "var(--dark-text)",
@@ -92,20 +80,8 @@ const config: Config = {
         "dark-blur": "var(--dark-blur)",
 
         "dark-danger": "var(--dark-danger)",
-        "dark-danger-text": "var(--dark-danger-text)",
 
         "dark-icon": "var(--dark-icon)",
-
-        "dark-slate-50": "var(--dark-slate-50)",
-        "dark-slate-100": "var(--dark-slate-100)",
-        "dark-slate-200": "var(--dark-slate-200)",
-        "dark-slate-300": "var(--dark-slate-300)",
-        "dark-slate-400": "var(--dark-slate-400)",
-        "dark-slate-500": "var(--dark-slate-500)",
-        "dark-slate-600": "var(--dark-slate-600)",
-        "dark-slate-700": "var(--dark-slate-700)",
-        "dark-slate-800": "var(--dark-slate-800)",
-        "dark-slate-900": "var(--dark-slate-900)",
       },
 
       boxShadow: {

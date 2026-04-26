@@ -23,18 +23,6 @@
 
   --light-icon: hsl(0, 0%, 24%);
 
-  /* Slate scale */
-  --light-slate-50: hsl(0, 0%, 44%);
-  --light-slate-100: hsl(0, 0%, 52%);
-  --light-slate-200: hsl(0, 0%, 58%);
-  --light-slate-300: hsl(0, 0%, 62%);
-  --light-slate-400: hsl(0, 0%, 68%);
-  --light-slate-500: hsl(0, 0%, 74%);
-  --light-slate-600: hsl(0, 0%, 80%);
-  --light-slate-700: hsl(0, 0%, 82%);
-  --light-slate-800: hsl(0, 0%, 84%);
-  --light-slate-900: hsl(0, 0%, 89%);
-
   /* ===== DARK ===== */
   --dark-text: hsl(0, 0%, 90%);
   --dark-text-muted: hsla(0, 0%, 100%, 0.6);
@@ -55,16 +43,17 @@
 
   --dark-icon: hsl(0, 0%, 76%);
 
-  --dark-slate-50: hsl(0, 0%, 44%);
-  --dark-slate-100: hsl(0, 0%, 52%);
-  --dark-slate-200: hsl(0, 0%, 58%);
-  --dark-slate-300: hsl(0, 0%, 62%);
-  --dark-slate-400: hsl(0, 0%, 68%);
-  --dark-slate-500: hsl(0, 0%, 74%);
-  --dark-slate-600: hsl(0, 0%, 80%);
-  --dark-slate-700: hsl(0, 0%, 82%);
-  --dark-slate-800: hsl(0, 0%, 84%);
-  --dark-slate-900: hsl(0, 0%, 89%);
+  /* ===== SHADES ===== */
+  --shade-50: hsl(0, 0%, 44%);
+  --shade-100: hsl(0, 0%, 52%);
+  --shade-200: hsl(0, 0%, 58%);
+  --shade-300: hsl(0, 0%, 62%);
+  --shade-400: hsl(0, 0%, 68%);
+  --shade-500: hsl(0, 0%, 74%);
+  --shade-600: hsl(0, 0%, 80%);
+  --shade-700: hsl(0, 0%, 82%);
+  --shade-800: hsl(0, 0%, 84%);
+  --shade-900: hsl(0, 0%, 89%);
 }
 
 [data-theme="light"] {
@@ -87,18 +76,6 @@
   --danger-text: var(--light-danger-text);
 
   --icon: var(--light-icon);
-
-  /* slate */
-  --slate-50: var(--light-slate-50);
-  --slate-100: var(--light-slate-100);
-  --slate-200: var(--light-slate-200);
-  --slate-300: var(--light-slate-300);
-  --slate-400: var(--light-slate-400);
-  --slate-500: var(--light-slate-500);
-  --slate-600: var(--light-slate-600);
-  --slate-700: var(--light-slate-700);
-  --slate-800: var(--light-slate-800);
-  --slate-900: var(--light-slate-900);
 }
 
 [data-theme="dark"] {
@@ -120,15 +97,4 @@
   --danger: var(--dark-danger);
 
   --icon: var(--dark-icon);
-
-  --slate-50: var(--dark-slate-50);
-  --slate-100: var(--dark-slate-100);
-  --slate-200: var(--dark-slate-200);
-  --slate-300: var(--dark-slate-300);
-  --slate-400: var(--dark-slate-400);
-  --slate-500: var(--dark-slate-500);
-  --slate-600: var(--dark-slate-600);
-  --slate-700: var(--dark-slate-700);
-  --slate-800: var(--dark-slate-800);
-  --slate-900: var(--dark-slate-900);
 }
