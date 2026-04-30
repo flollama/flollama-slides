@@ -1,32 +1,64 @@
 "use client";
+import React from "react";
 
 import Button from "@/components/ui/Buttons";
+import MobileBlocker from "@/components/MobileBlocker";
+import ChatPanel from "@/components/ChatPanel";
+import ViewerPanel from "@/components/ViewerPanel";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-bg text-text px-6">
-      <main className="max-w-2xl w-full text-center flex flex-col items-center gap-6">
-        
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
-          Build Something Clean.
-        </h1>
+    <React.Fragment>
+      <noscript>
+        <div className="fixed inset-0 flex items-center justify-center bg-bg z-[9999]">
+          <div className="flex flex-col items-center gap-8 px-8 text-center">
+      
+            {/* Brand */}
+            <div className="flex flex-col items-center gap-4 text-muted">
+              <span className="font-ubuntu text-2xl">
+                flollama AI
+              </span>
+            </div>
 
-        <p className="text-muted text-lg max-w-xl">
-          This is a starter homepage for Flollama projects. It exists purely to
-          test UI components, typography, spacing, and theme behavior across
-          light and dark modes.
-        </p>
+            {/* Divider */}
+            <div className="w-12 h-px bg-border" />
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Button variant="primary" href="https://github.com/orgs/flollama/projects/1">View Project</Button>
-          <Button variant="secondary">I'm Useless</Button>
-          <Button variant="outline" href="https://github.com/flollama/flollama-slides.git">View Repo</Button>
+            {/* Message */}
+            <div className="flex flex-col gap-2 max-w-xs">
+              <p className="text-sm font-inter text-muted">
+                This application requires JavaScript to run.
+              </p>
+              <p className="text-xs font-inter text-subtle">
+                Please enable JavaScript to continue.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </noscript>
+    
+      {/* ── Bounce keyframe for typing indicator ── */}
+      <style>{`
+        @keyframes flollama-bounce {
+          0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+          30%            { transform: translateY(-4px); opacity: 1; }
+        }
+      `}</style>
+
+      <div
+        className="w-screen h-screen overflow-hidden bg-[#1c1c1c] font-inter"
+      >
+        {/* ── Desktop-only blocker (< 960 px) ── */}
+        <div className="flex min-[960px]:hidden size-full">
+          <MobileBlocker />
         </div>
 
-        <div className="mt-8 text-sm text-muted opacity-70">
-          <p>Theme, colors, spacing, and interactions test layer</p>
+        {/* ── Main App (≥ 960 px) ── */}
+        <div className="hidden min-[960px]:flex size-full overflow-hidden">
+          <ViewerPanel />
+          <ChatPanel />
         </div>
-      </main>
-    </div>
+      </div>
+    </React.Fragment>
   );
 }

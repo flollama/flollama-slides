@@ -55,6 +55,27 @@
   --shade-700: hsl(0, 0%, 82%);
   --shade-800: hsl(0, 0%, 84%);
   --shade-900: hsl(0, 0%, 89%);
+
+  /* ===== DEFAULT DARK ===== */
+  --text: var(--dark-text);
+  --text-muted: var(--dark-text-muted);
+  --text-subtle: var(--dark-text-subtle);
+
+  --bg: var(--dark-bg);
+  --bg-inverted: var(--dark-bg-inverted);
+  --bg-elevated: var(--dark-bg-elevated);
+  --bg-hover: var(--dark-bg-hover);
+  --bg-popup: var(--dark-bg-popup);
+
+  --accent: var(--dark-accent);
+  --border: var(--dark-border);
+  --shadow: var(--dark-shadow);
+  --blur: var(--dark-blur);
+
+  --danger: var(--dark-danger);
+  --danger-text: var(--dark-danger-text);
+
+  --icon: var(--dark-icon);
 }
 
 [data-theme="light"] {

@@ -103,23 +103,66 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`h-full antialiased`}
-    >
+    <html lang="en" className="h-full antialiased">
+      <head>
+        {/* Kill app if JS is disabled */}
+        <noscript>
+          <style>{`
+            body > *:not(noscript) {
+              display: none !important;
+            }
+          `}</style>
+        </noscript>
+
+        {/* Enable JS → remove blocker */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.documentElement.classList.remove('no-js');
+            `,
+          }}
+        />
+      </head>
+
       <body
-        className={`
+         className={`
           ${inter.variable}
           ${poppins.variable}
           ${ubuntu.variable}
           ${noto.variable}
-          min-h-full flex flex-col
+          min-h-full flex flex-col text-text bg-bg
         `}
       >
+        
+        {/* JS Disabled UI */}
+        <noscript>
+          <div className="fixed inset-0 flex items-center justify-center bg-bg z-[9999]">
+            <div className="flex flex-col items-center gap-8 px-8 text-center">
+              
+              <span className="font-ubuntu text-2xl text-muted">
+                flollama AI
+              </span>
+
+              <div className="w-12 h-px bg-border" />
+
+              <div className="flex flex-col gap-2 max-w-xs">
+                <p className="text-sm font-inter text-muted">
+                  This application requires JavaScript to run.
+                </p>
+                <p className="text-xs font-inter text-subtle">
+                  Please enable JavaScript to continue.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </noscript>
+
+        {/* App */}
         <ThemeProvider>
           {children}
           <ThemeToggle />

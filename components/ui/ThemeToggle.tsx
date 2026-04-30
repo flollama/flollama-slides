@@ -12,7 +12,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       aria-label="Toggle theme"
       className="
-        fixed bottom-8 right-8
+        fixed bottom-8 left-8
         w-12 h-12
         rounded-full
         bg-bg

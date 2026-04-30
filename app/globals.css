@@ -3,6 +3,10 @@
 @config "../tailwind.config.ts";
 
 @layer base {
+  html.no-js body > *:not(noscript) {
+    display: none !important;
+  }
+
   /* ================== RESET ================== */
   *,
   *::before,
