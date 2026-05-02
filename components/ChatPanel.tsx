@@ -4,7 +4,22 @@ import { useState, useRef, useEffect, KeyboardEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import svgPaths from "@/assets/svg";
 
-/* Icons unchanged */
+/* Types */
+type Role = "user" | "assistant";
+
+export interface Message {
+  id: number;
+  role: Role;
+  content: string;
+}
+
+/* Props */
+interface ChatPanelProps {
+  messages: Message[];
+  onSend?: (msg: string) => void;
+}
+
+/* Icons */
 function FlollamaLogoIcon() {
   return (
     <div className="h-8 w-7 relative shrink-0 text-muted">
@@ -30,31 +45,7 @@ function SendIcon() {
   );
 }
 
-/* Types */
-type Role = "user" | "assistant";
-
-interface Message {
-  id: number;
-  role: Role;
-  content: string;
-}
-
-/* Mock */
-const INITIAL_MESSAGES: Message[] = [
-  { id: 1, role: "user", content: "Make a Presentation about Humans" },
-  {
-    id: 2,
-    role: "assistant",
-    content: "I've created a 3-slide presentation about humans, covering who we are, what defines us, and how we can build a better future together.",
-  },
-  { id: 3, role: "user", content: "Change the Colors to Light Theme" },
-  {
-    id: 4,
-    role: "assistant",
-    content: "I've updated the presentation with a light theme using white tones and added relevant images to enhance the visuals.",
-  },
-];
-
+/* AI mock */
 const AI_REPLIES = [
   "Done! I've applied that change to your presentation.",
   "Sure! The slides have been updated as requested.",
@@ -71,35 +62,42 @@ function getNextReply(): string {
 }
 
 /* Component */
-export default function ChatPanel() {
-  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
+export default function ChatPanel({ messages, onSend }: ChatPanelProps) {
+  const [localMessages, setLocalMessages] = useState<Message[]>(messages);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const nextId = useRef(INITIAL_MESSAGES.length + 1);
+  const nextId = useRef(messages.length + 1);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isTyping]);
+  }, [localMessages, isTyping]);
 
   const sendMessage = () => {
     const text = input.trim();
     if (!text || isTyping) return;
 
-    setMessages((prev) => [
-      ...prev,
-      { id: nextId.current++, role: "user", content: text },
-    ]);
+    const userMsg: Message = {
+      id: nextId.current++,
+      role: "user",
+      content: text,
+    };
 
+    setLocalMessages((prev) => [...prev, userMsg]);
     setInput("");
     setIsTyping(true);
 
+    onSend?.(text);
+
     setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { id: nextId.current++, role: "assistant", content: getNextReply() },
-      ]);
+      const aiMsg: Message = {
+        id: nextId.current++,
+        role: "assistant",
+        content: getNextReply(),
+      };
+
+      setLocalMessages((prev) => [...prev, aiMsg]);
       setIsTyping(false);
     }, 900);
   };
@@ -131,7 +129,7 @@ export default function ChatPanel() {
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col gap-4 px-4 py-6">
           <AnimatePresence initial={false}>
-            {messages.map((msg) => (
+            {localMessages.map((msg) => (
               <motion.div
                 key={msg.id}
                 initial={{ opacity: 0, y: 10 }}

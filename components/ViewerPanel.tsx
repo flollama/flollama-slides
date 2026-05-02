@@ -3,20 +3,33 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Reorder, motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import svgPaths from "@/assets/svg";
-import slide1Src from "@/assets/slide1.png";
-import slide2Src from "@/assets/slide2.png";
-import slide3Src from "@/assets/slide3.png";
 
-const initialSlides = [
-  { id: 1, src: slide1Src, label: "Humans – Cover" },
-  { id: 2, src: slide2Src, label: "What Makes Us Human?" },
-  { id: 3, src: slide3Src, label: "Building a Better Future" },
-];
+/* Types */
+export interface Slide {
+  id: number;
+  src: any;
+  label: string;
+}
 
+interface ViewerPanelProps {
+  slides: Slide[];
+  presentationName: string;
+}
+
+function isInvalidImage(src: any) {
+  return (
+    !src ||
+    src === "" ||
+    src === "@/assets/transparent.png"
+  );
+}
+
+/* Icon */
 function DocumentIcon() {
   return (
-    <div className="h-9 w-6 relative shrink-0 text-text m-1">
+    <div className="h-9 w-6 relative shrink-0 text-text">
       <svg viewBox="0 0 16 23" className="absolute inset-0 size-full">
         <g clipPath="url(#clip_doc_icon)">
           <path d={svgPaths.p164a0840} fill="currentColor" />
@@ -31,16 +44,33 @@ function DocumentIcon() {
   );
 }
 
-const navActions = ["Home", "Undo", "Redo", "Download"];
+/* ✅ updated: supports actions + href */
+type NavAction = {
+  label: string;
+  onClick?: () => void;
+  href?: string;
+  external?: boolean;
+};
 
-export default function ViewerPanel({ presentationName = "humans.pptx" }) {
+const navActions: NavAction[] = [
+  { label: "Home", href: "/" },
+  { label: "Undo" },
+  { label: "Redo" },
+  { label: "Download" },
+];
+
+export default function ViewerPanel({
+  slides: initialSlides,
+  presentationName,
+}: ViewerPanelProps) {
+  const router = useRouter();
+
   const [slides, setSlides] = useState(initialSlides);
   const [activeSlide, setActiveSlide] = useState(0);
 
   const [imgError, setImgError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // ✅ FIXED TYPES
   const [thumbError, setThumbError] = useState<Record<number, boolean>>({});
   const [thumbLoading, setThumbLoading] = useState<Record<number, boolean>>({});
 
@@ -48,27 +78,47 @@ export default function ViewerPanel({ presentationName = "humans.pptx" }) {
 
   useEffect(() => {
     setImgError(false);
-    setIsLoading(true);
-  }, [currentSlide.id]);
+
+    if (isInvalidImage(currentSlide?.src)) {
+      setIsLoading(true);
+    } else {
+      setIsLoading(true);
+    }
+  }, [currentSlide?.id]);
+
+  const isInvalid = isInvalidImage(currentSlide?.src);
 
   return (
     <div className="flex-1 flex flex-col h-full min-w-[640px] border-r-2 border-border overflow-hidden bg-bg">
+      
       {/* Top */}
-      <div className="relative h-10 flex items-center justify-between px-3">
+      <div className="relative h-auto flex items-center justify-between px-3 py-1">
         <div className="flex items-center gap-2">
           <DocumentIcon />
-          {navActions.map((label) => (
+          {navActions.map((action) => (
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              key={label}
+              key={action.label}
+              onClick={() => {
+                if (action.onClick) return action.onClick();
+                if (action.href) {
+                  if (action.external) {
+                    window.open(action.href, "_blank");
+                  } else {
+                    router.push(action.href);
+                  }
+                }
+              }}
               className="px-1.5 py-2 text-sm font-light font-inter text-muted hover:text-text transition-colors cursor-pointer select-none"
             >
-              {label}
+              {action.label}
             </motion.button>
           ))}
         </div>
-        <span className="text-sm text-muted">{presentationName}</span>
+
+        <span className="text-sm text-muted">{presentationName}<span className="text-subtle text-xs">.pptx</span></span>
+
         <div className="absolute bottom-0 inset-x-0 h-px bg-border" />
       </div>
 
@@ -77,7 +127,7 @@ export default function ViewerPanel({ presentationName = "humans.pptx" }) {
         <div className="relative w-full max-w-3xl aspect-video rounded-lg overflow-hidden">
           <div className="absolute inset-0 bg-bg-elevated" />
 
-          {isLoading && !imgError && (
+          {(isLoading || isInvalid) && !imgError && (
             <motion.div
               className="absolute inset-0 bg-elevated"
               animate={{ opacity: [0.4, 0.8, 0.4] }}
@@ -86,7 +136,7 @@ export default function ViewerPanel({ presentationName = "humans.pptx" }) {
           )}
 
           <AnimatePresence mode="wait">
-            {!imgError && (
+            {!imgError && currentSlide && !isInvalid && (
               <motion.div
                 key={currentSlide.id}
                 initial={{ opacity: 0, scale: 0.98 }}
@@ -113,15 +163,15 @@ export default function ViewerPanel({ presentationName = "humans.pptx" }) {
             )}
           </AnimatePresence>
 
-          {imgError && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="absolute inset-0 flex items-center justify-center text-subtle"
-            >
-              No preview
-            </motion.div>
-          )}
+        {(imgError || isInvalid) && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute inset-0 flex items-center justify-center text-subtle"
+          >
+            No preview
+          </motion.div>
+        )}
         </div>
 
         {/* Thumbnails */}
@@ -135,12 +185,19 @@ export default function ViewerPanel({ presentationName = "humans.pptx" }) {
             );
             setActiveSlide(newIndex);
           }}
-          className="flex flex-wrap gap-2.5 justify-center"
+          className="
+            grid
+            grid-cols-[repeat(auto-fit,minmax(120px,140px))]
+            justify-center
+            justify-items-center
+            gap-3
+            px-6
+            max-w-4xl
+            mx-auto
+          "
         >
           {slides.map((slide, i) => {
             const isActive = i === activeSlide;
-
-            // ✅ FIXED SAFE ACCESS
             const isThumbLoading = thumbLoading[i] ?? true;
 
             return (

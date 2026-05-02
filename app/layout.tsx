@@ -2,8 +2,10 @@ import { Inter, Poppins, Ubuntu, Noto_Sans } from "next/font/google";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import ThemeProvider from "@/utils/ThemeProvider";
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
+/* Fonts */
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -30,12 +32,13 @@ const noto = Noto_Sans({
   display: "swap",
 });
 
+/* Metadata */
 export const metadata: Metadata = {
   metadataBase: new URL("https://slides.flollama.in"),
 
   title: "Flollama Slides – AI Presentation Generator",
   description:
-    "Create structured, visually compelling presentations instantly with Flollama Slides. AI-powered content generation and design automation for modern workflows.",
+    "Create structured, visually compelling presentations instantly with Flollama Slides. AI-powered content generation and design automation.",
 
   keywords: [
     "Flollama Slides",
@@ -108,28 +111,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased">
-      <head>
-        {/* Kill app if JS is disabled */}
-        <noscript>
-          <style>{`
-            body > *:not(noscript) {
-              display: none !important;
-            }
-          `}</style>
-        </noscript>
-
-        {/* Enable JS → remove blocker */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.documentElement.classList.remove('no-js');
-            `,
-          }}
-        />
-      </head>
-
       <body
-         className={`
+        className={`
           ${inter.variable}
           ${poppins.variable}
           ${ubuntu.variable}
@@ -137,12 +120,12 @@ export default function RootLayout({
           min-h-full flex flex-col text-text bg-bg
         `}
       >
-        
+  
         {/* JS Disabled UI */}
         <noscript>
           <div className="fixed inset-0 flex items-center justify-center bg-bg z-[9999]">
             <div className="flex flex-col items-center gap-8 px-8 text-center">
-              
+
               <span className="font-ubuntu text-2xl text-muted">
                 flollama AI
               </span>
@@ -167,6 +150,11 @@ export default function RootLayout({
           {children}
           <ThemeToggle />
         </ThemeProvider>
+
+         {/* ✅ Correct place for scripts */}
+        <Script id="no-js" strategy="beforeInteractive" async>
+          {`document.documentElement.classList.remove('no-js');`}
+        </Script>
       </body>
     </html>
   );
